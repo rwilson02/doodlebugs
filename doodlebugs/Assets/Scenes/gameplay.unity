@@ -1706,15 +1706,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9655b1c09c301134ba68ee23ad3ac9c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy:
+  - {fileID: 3657310794914433123, guid: 78d6c1eea166d8b4fb6de061b5e6bd38, type: 3}
+  - {fileID: 2672161311654016613, guid: 2cb4fd70ed733574f81f1c3344f29b80, type: 3}
+  - {fileID: 5697722342487315827, guid: d9a7c4aadc45a8143abc1c9c8cdc4c47, type: 3}
   waves:
   - count: 060000000000000000000000
-    enemy:
-    - {fileID: 3657310794914433123, guid: 78d6c1eea166d8b4fb6de061b5e6bd38, type: 3}
-    - {fileID: 2672161311654016613, guid: 2cb4fd70ed733574f81f1c3344f29b80, type: 3}
-    - {fileID: 5697722342487315827, guid: d9a7c4aadc45a8143abc1c9c8cdc4c47, type: 3}
-    rate: 1
+    rate: 0.75
     redNum: 0
-  spawnList: []
 --- !u!4 &1041104156
 Transform:
   m_ObjectHideFlags: 0

@@ -6,8 +6,8 @@ public class EnemyScript : MonoBehaviour
 {
     public int hp, bounty;
     public bool red = false;
-    eneMovement move = null;
-    triMovement trimove = null;
+    public eneMovement move = null;
+    public triMovement trimove = null;
     public SpriteRenderer img;
     public Sprite[] sprites;
     bool isTri;
