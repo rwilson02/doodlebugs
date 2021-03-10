@@ -75,6 +75,7 @@ public class TowerPlacement : MonoBehaviour
 
                 if (done)
                 {
+                    placing.GetComponentInChildren<Fire>().good = true;
                     placing = null;
                     placeStage = 0;
                     done = false;

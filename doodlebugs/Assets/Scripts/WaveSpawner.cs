@@ -20,7 +20,7 @@ public class WaveSpawner : MonoBehaviour
     public Wave[] waves;
     private int next = 0;
     private float checkCountdown = 2;
-    private SpawnState state = SpawnState.waiting;
+    public SpawnState state = SpawnState.waiting;
     List<int> spawnList = new List<int>();
 
     private void Update()

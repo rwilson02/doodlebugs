@@ -24,14 +24,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4653658344055465766}
-  m_LocalRotation: {x: 0, y: 0, z: 0.60174537, w: 0.798688}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4653658345261393521}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 73.99}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4653658344055465767
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4653658345261393521}
   - component: {fileID: 4653658345261393484}
   - component: {fileID: 4653658345261393487}
-  - component: {fileID: 4653658345261393486}
+  - component: {fileID: 5172984427686771274}
   m_Layer: 0
   m_Name: turret head
   m_TagString: Untagged
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27be0e09bdb177f479edf7cf2e258c3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4653658345261393486
+--- !u!114 &5172984427686771274
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,11 +189,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4653658345261393520}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6bfc2087171d654ca6537393019f91a, type: 3}
+  m_Script: {fileID: 11500000, guid: 13b32d3d276075348ad3f2e6e8d9310a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tip: {fileID: 4653658345293602087}
   bullet: {fileID: 3095083146365554237, guid: 99556c8e5fde0d04a97693b808be1616, type: 3}
+  rate: 2
+  stat: 1
+  range: 3
+  good: 0
 --- !u!1 &4653658345293602087
 GameObject:
   m_ObjectHideFlags: 0
