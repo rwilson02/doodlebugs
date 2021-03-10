@@ -22,6 +22,15 @@ public class WaveSpawner : MonoBehaviour
     private float checkCountdown = 2;
     public SpawnState state = SpawnState.waiting;
     List<int> spawnList = new List<int>();
+    public bool isWave = false;
+    public ChangeScene sean;
+
+    public static WaveSpawner WaveTime;
+
+    private void Start()
+    {
+        WaveTime = this;
+    }
 
     private void Update()
     {
@@ -72,6 +81,7 @@ public class WaveSpawner : MonoBehaviour
 
     void WaveComplete()
     {
+        isWave = false;
         Debug.Log("Nice one!");
         state = SpawnState.waiting;
         currenScript.playerCash.balance += (75 + (25 * (next + 1))); 
@@ -81,6 +91,8 @@ public class WaveSpawner : MonoBehaviour
         {
             next = 0; // until there's a results screen
             Debug.Log("you win");
+            sean.GoTo = "victory";
+            sean.Outie();
         }
         else next++;
     }
@@ -98,6 +110,7 @@ public class WaveSpawner : MonoBehaviour
         print(spawnList);
 
         state = SpawnState.spawning;
+        isWave = true;
 
 
         for(int j = spawnList.Count; j > 0; j--)
@@ -113,6 +126,7 @@ public class WaveSpawner : MonoBehaviour
                 {
                     red = true;
                 }
+                else red = false;
             }
             else red = true;
 

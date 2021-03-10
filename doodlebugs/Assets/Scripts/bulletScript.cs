@@ -6,10 +6,18 @@ public class bulletScript : MonoBehaviour
 {
     public float speed;
     public int hp = 1;
+    public float life = 3;
+    public AudioSource hit;
 
     void Update()
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
+
+        life -= Time.deltaTime;
+        if(life <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnBecameInvisible()
@@ -31,6 +39,7 @@ public class bulletScript : MonoBehaviour
             }
             if (hp == 0)
             {
+                hit.Play();
                 Destroy(gameObject);
             }
         }

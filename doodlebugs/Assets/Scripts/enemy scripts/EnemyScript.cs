@@ -12,6 +12,8 @@ public class EnemyScript : MonoBehaviour
     public Sprite[] sprites;
     bool isTri;
 
+    public ParticleSystem die;
+
     private void Awake()
     {
         if(TryGetComponent(out eneMovement gotMoveA)){
@@ -47,7 +49,7 @@ public class EnemyScript : MonoBehaviour
     {
         Debug.Log("ded");
         currenScript.playerCash.Kill(bounty);
-        //some other stuff, like a sound
+        Instantiate(die, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }

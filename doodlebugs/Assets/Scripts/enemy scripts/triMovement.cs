@@ -42,6 +42,7 @@ public class triMovement : MonoBehaviour
     {
         if (wayptIndex >= path.Length - 1)
         {
+            life.playerHP.DMG();
             Destroy(gameObject);
             return;
         }

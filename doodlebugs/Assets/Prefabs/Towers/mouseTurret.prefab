@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 4241543164121219992}
   - component: {fileID: 4241543164121219993}
   - component: {fileID: 4241543164121219998}
-  - component: {fileID: 4241543164121219999}
+  - component: {fileID: 314412964219580854}
   m_Layer: 0
   m_Name: turret head
   m_TagString: Untagged
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27be0e09bdb177f479edf7cf2e258c3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4241543164121219999
+--- !u!114 &314412964219580854
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -219,8 +219,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4241543164121219995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6bfc2087171d654ca6537393019f91a, type: 3}
+  m_Script: {fileID: 11500000, guid: 13b32d3d276075348ad3f2e6e8d9310a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tip: {fileID: 4241543162709304302}
   bullet: {fileID: 3095083146365554237, guid: 99556c8e5fde0d04a97693b808be1616, type: 3}
+  rate: 1.5
+  stat: 0
+  range: 10
+  good: 0
+  wave: 0

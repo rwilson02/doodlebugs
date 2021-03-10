@@ -8,58 +8,42 @@ public class Fire : MonoBehaviour
     public float rate;
     float timer;
     bool timed;
-    public static WaveSpawner wav;
     public bool stat;
     public float range;
     public bool good = false;
-
-    private void Start()
-    {
-        wav = GameObject.Find("Spawnpoint").GetComponent<WaveSpawner>();
-    }
+    public bool wave = false;
 
     // Update is called once per frame
     void Update()
     {
-        if (wav.state != WaveSpawner.SpawnState.waiting)
-        {
-            timed = true;
-        }
-        else timed = false;
+        //wave = WaveSpawner.WaveTime.isWave;
 
-        while (good && timed)
-        {
-            timer -= Time.deltaTime;
-        }
+        ////if (wave)
+        ////{
+        //    timed = true;
+        ////}
+        ////else timed = false;
 
-        if(good && timer <= 0)
-        {
-            if (!stat)
-            {
-                Shoot();
-                timer = 1/rate;
-            } 
-            else
-            {
-                RaycastHit2D hit = Physics2D.Raycast(tip.transform.position, Vector2.right * range);
-                Debug.DrawRay(tip.transform.position, tip.transform.right * range, Color.red);
+        //while (good && timed)
+        //{
+        //    timer -= Time.deltaTime;
 
-                if (hit.collider != null)
+        //    if(timer <= 0)
+        //    {
+                if (good && Input.GetMouseButtonDown(0))
                 {
-                    var hitObj = hit.collider;
-
-                    if (hitObj.isTrigger && hitObj.CompareTag("Enemy"))
-                    {
-                        Shoot();
-                        timer = 1/rate;
-                    }
+                    print("shoot");
+                    Shoot();
+                    //timer = 1 / rate;
                 }
-            }
-        }
+        //    }
+        //}
     }
 
     void Shoot()
     {
         GameObject clone = Instantiate(bullet, tip.transform.position, tip.transform.rotation);
+        clone.GetComponent<bulletScript>().life = range;
+        print("shot");
     }
 }

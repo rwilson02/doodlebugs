@@ -29,6 +29,7 @@ public class eneMovement : MonoBehaviour
     {
         if(wayptIndex >= WayPointerA.waypts.Length - 1)
         {
+            life.playerHP.DMG();
             Destroy(gameObject);
             return;
         }

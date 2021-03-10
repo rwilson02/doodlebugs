@@ -5,12 +5,14 @@ using UnityEngine;
 public class shop : MonoBehaviour
 {
     public TowerPlacement place;
+    public AudioSource buy;
 
     public void Buychase1()
     {
         if (currenScript.playerCash.Buy(100))
         {
             place.PlaceTower(0);
+            buy.Play();
         }
     }
 
@@ -19,6 +21,7 @@ public class shop : MonoBehaviour
         if (currenScript.playerCash.Buy(200))
         {
             place.PlaceTower(1);
+            buy.Play();
         }
     }
 }

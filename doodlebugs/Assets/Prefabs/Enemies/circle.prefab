@@ -114,10 +114,13 @@ MonoBehaviour:
   hp: 4
   bounty: 20
   red: 0
+  move: {fileID: 0}
+  trimove: {fileID: 0}
   img: {fileID: 2672161312019602287}
   sprites:
   - {fileID: 21300000, guid: 555844bf3dd321349b92124a426f5a54, type: 3}
   - {fileID: 21300000, guid: 36c2c82782ba31845b9f69ae816a70fc, type: 3}
+  die: {fileID: 6646417252052605246, guid: 170a2587191abaa4da71ac9a8275be3c, type: 3}
 --- !u!58 &1013139072882833704
 CircleCollider2D:
   m_ObjectHideFlags: 0
