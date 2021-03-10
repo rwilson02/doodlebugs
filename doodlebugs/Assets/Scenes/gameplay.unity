@@ -1709,9 +1709,9 @@ MonoBehaviour:
   waves:
   - count: 060000000000000000000000
     enemy:
-    - {fileID: 3657310794914433121, guid: 78d6c1eea166d8b4fb6de061b5e6bd38, type: 3}
-    - {fileID: 2672161311654016667, guid: 2cb4fd70ed733574f81f1c3344f29b80, type: 3}
-    - {fileID: 5697722342487315837, guid: d9a7c4aadc45a8143abc1c9c8cdc4c47, type: 3}
+    - {fileID: 3657310794914433123, guid: 78d6c1eea166d8b4fb6de061b5e6bd38, type: 3}
+    - {fileID: 2672161311654016613, guid: 2cb4fd70ed733574f81f1c3344f29b80, type: 3}
+    - {fileID: 5697722342487315827, guid: d9a7c4aadc45a8143abc1c9c8cdc4c47, type: 3}
     rate: 1
     redNum: 0
   spawnList: []

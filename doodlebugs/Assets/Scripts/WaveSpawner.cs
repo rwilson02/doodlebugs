@@ -21,6 +21,7 @@ public class WaveSpawner : MonoBehaviour
     private float checkCountdown = 2;
     private SpawnState state = SpawnState.waiting;
     public List<GameObject> spawnList;
+    private float timer;
 
     private void Update()
     {
@@ -36,6 +37,9 @@ public class WaveSpawner : MonoBehaviour
                 WaveComplete();
             }
         }
+
+        timer -= Time.deltaTime;
+        print(timer);
     }
 
     bool Deadality()
@@ -58,8 +62,48 @@ public class WaveSpawner : MonoBehaviour
         if (state == SpawnState.waiting)
         {
             Debug.Log("Booding it up");
-            StartCoroutine( DoTheDo(waves[next]) );
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < waves[next].count[i]; j++)
+                {
+                    GameObject f = Instantiate(waves[next].enemy[i], 
+                        transform.position, transform.rotation);
+                    print(f);
+                    spawnList.Add(f);
+                }
+            }
+
+            StartWave(waves[next]);
         }
+    }
+
+    private void StartWave(Wave wave)
+    {
+        int j = spawnList.Count;
+
+        do
+        {
+            if (timer <= 0) 
+            {
+                int h = Random.Range(0, j);
+                bool red = false;
+
+                if (wave.redNum < h)
+                {
+                    if (Random.value > 0.7)
+                    {
+                        red = true;
+                    }
+                }
+                else red = true;
+
+                SpawnEnemy(spawnList[h], red);
+                spawnList.RemoveAt(h);
+                j--;
+                timer = 1 / wave.rate;
+            }
+        } while (j > 0);
     }
 
     void SpawnEnemy(GameObject enemy, bool isRed)
@@ -81,43 +125,5 @@ public class WaveSpawner : MonoBehaviour
             Debug.Log("you win");
         }
         else next++;
-    }
-
-    IEnumerator DoTheDo(Wave wave)
-    {
-        for (int i = 0; i < 3; i++)
-        {
-            for (int j = 0; j < wave.count[i]; j++)
-            {
-                var f = Instantiate(wave.enemy[i], transform.position, transform.rotation);
-                spawnList.Add(f);
-            }
-        }
-
-        state = SpawnState.spawning;
-
-        for(int j = spawnList.Count; j > 0; j--)
-        {
-            int h = Random.Range(0, j);
-            bool red = false;
-
-            if (wave.redNum < h)
-            {
-                if (Random.value > 0.7)
-                {
-                    red = true;
-                }
-            }
-            else red = true;
-
-            SpawnEnemy(spawnList[h], red);
-            spawnList.RemoveAt(h);
-
-            yield return new WaitForSeconds(1 / wave.rate);
-        }
-
-        state = SpawnState.spawned;
-
-        yield break;
     }
 }
