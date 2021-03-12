@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class CanvScript : MonoBehaviour
 {
     public Text balance, menuButton;
-    bool show = true;
-    public RectTransform menu;
-    public KeyCode menuKey;
-    float t = 0;
+    bool show = true, paused = false;
+    public RectTransform menu, pause;
+    public KeyCode menuKey, pauseKey;
+    float t = 0, b = 0;
     public AudioSource slide;
 
 
@@ -39,8 +39,26 @@ public class CanvScript : MonoBehaviour
             slide.Play();
             //print(show);
         }
-     
+
+        if (Input.GetKeyDown(pauseKey))
+        {
+            paused = !paused;
+
+            if (paused)
+            {
+                slide.pitch = 1;
+            }
+            else
+            {
+                slide.pitch = .75f;
+            }
+
+            slide.Play();
+            //print(show);
+        }
+
         menu.position = new Vector2( 960 + Mathf.Lerp(0,400,t) , menu.position.y);
+        pause.position = new Vector2(Mathf.Lerp(-400, 350, b), pause.position.y);
         //print(t);
 
         if (show)
@@ -49,6 +67,18 @@ public class CanvScript : MonoBehaviour
         }
         else t += 2.5f * Time.deltaTime;
 
+        if (paused)
+        {
+            Time.timeScale = 0;
+            b += 2.5f * Time.unscaledDeltaTime;
+        }
+        else
+        {
+            Time.timeScale = 1; 
+            b -= 2.5f * Time.unscaledDeltaTime;
+        }
+
         t = Mathf.Clamp01(t);
+        b = Mathf.Clamp01(b);
     }
 }
