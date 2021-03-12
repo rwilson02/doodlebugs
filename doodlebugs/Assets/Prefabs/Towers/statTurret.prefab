@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 4653658345261393484}
   - component: {fileID: 4653658345261393487}
   - component: {fileID: 5172984427686771274}
+  - component: {fileID: 7844265764658545173}
   m_Layer: 0
   m_Name: turret head
   m_TagString: Untagged
@@ -199,6 +200,25 @@ MonoBehaviour:
   range: 2
   good: 0
   wave: 0
+--- !u!95 &7844265764658545173
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4653658345261393520}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 144fb8f0e3441de45b7616a22a20a30c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4653658345293602087
 GameObject:
   m_ObjectHideFlags: 0
