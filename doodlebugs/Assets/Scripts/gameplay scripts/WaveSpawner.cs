@@ -133,7 +133,7 @@ public class WaveSpawner : MonoBehaviour
             print(reds);
             if(reds < spawnList.Count)
             {
-                if (Random.value > 0.7)
+                if (Random.value > 0.7 && reds != 0)
                 {
                     red = true;
                     reds--;
