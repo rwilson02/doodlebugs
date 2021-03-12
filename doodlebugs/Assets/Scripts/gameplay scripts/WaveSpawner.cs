@@ -18,10 +18,11 @@ public class WaveSpawner : MonoBehaviour
     public GameObject[] enemy;
 
     public Wave[] waves;
-    private int next = 0;
+    private int next = 0, cacheBalance;
     private float checkCountdown = 2;
     public SpawnState state = SpawnState.waiting;
     List<int> spawnList = new List<int>();
+    List<GameObject> cacheTowers = new List<GameObject>();
     public bool isWave = false;
     public ChangeScene sean;
 
@@ -100,6 +101,14 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator DoTheDo(Wave wave)
     {
+        cacheBalance = currenScript.playerCash.balance;
+        foreach (GameObject tower in GameObject.FindGameObjectsWithTag("Tower"))
+        {
+            cacheTowers.Add(tower);
+        }
+
+        int reds = wave.redNum;
+
         for (int i = 0; i < 3; i++)
         {
             for (int j = 0; j < wave.count[i]; j++)
@@ -119,21 +128,22 @@ public class WaveSpawner : MonoBehaviour
             yield return new WaitForSeconds(1 / wave.rate);
 
             int h = Random.Range(0, j);
-            bool red = false;
+            bool red;
 
-            if(wave.redNum < spawnList.Count)
+            print(reds);
+            if(reds < spawnList.Count)
             {
                 if (Random.value > 0.7)
                 {
                     red = true;
-                    wave.redNum--;
+                    reds--;
                 }
                 else red = false;
             } 
             else
             {
                 red = true;
-                wave.redNum--;
+                reds--;
             }
 
             SpawnEnemy(spawnList[h], red);
@@ -143,5 +153,33 @@ public class WaveSpawner : MonoBehaviour
         state = SpawnState.spawned;
 
         yield break;
+    }
+
+    public void RestartWave()
+    {
+        state = SpawnState.waiting;
+        isWave = false;
+        currenScript.playerCash.balance = cacheBalance;
+
+        GameObject[] die = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject enemy in die)
+        {
+            Destroy(enemy);
+        }
+
+        GameObject[] fly = GameObject.FindGameObjectsWithTag("bullet");
+        foreach (GameObject bullet in fly)
+        {
+            Destroy(bullet);
+        }
+
+        GameObject[] bye = GameObject.FindGameObjectsWithTag("Tower");
+        for (int i = 0; i < bye.Length; i++)
+        {
+            if (!cacheTowers.Contains(bye[i]))
+            {
+                Destroy(bye[i]);
+            }
+        }
     }
 }
