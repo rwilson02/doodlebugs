@@ -82,11 +82,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13600}
     - Class: 114
-      Script: {instanceID: 14428}
+      Script: {instanceID: 14274}
     - Class: 114
-      Script: {instanceID: 15064}
+      Script: {instanceID: 14430}
     - Class: 114
-      Script: {instanceID: 21368}
+      Script: {instanceID: 15066}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -133,9 +133,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13600}
     - Class: 114
-      Script: {instanceID: 14428}
+      Script: {instanceID: 14430}
     - Class: 114
-      Script: {instanceID: 15064}
+      Script: {instanceID: 15066}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -238,13 +238,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14070}
     - Class: 114
-      Script: {instanceID: 14352}
+      Script: {instanceID: 14354}
     - Class: 114
-      Script: {instanceID: 14428}
+      Script: {instanceID: 14430}
     - Class: 114
-      Script: {instanceID: 14612}
+      Script: {instanceID: 14614}
     - Class: 114
-      Script: {instanceID: 15064}
+      Script: {instanceID: 15066}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -297,9 +297,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13600}
     - Class: 114
-      Script: {instanceID: 14428}
+      Script: {instanceID: 14430}
     - Class: 114
-      Script: {instanceID: 15064}
+      Script: {instanceID: 15066}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -763,6 +763,12 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
+      Hash: 99e82f1829131a1c38b91405eb59655f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: How2Play
+  - hash:
+      serializedVersion: 2
       Hash: 760787567e1b60d64a3e421ab83ee14a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -905,16 +911,10 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 99e82f1829131a1c38b91405eb59655f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: How2Play
   platform: 5
   scenePathNames:
   - Assets/Scenes/Title.unity
   - Assets/Scenes/gameplay.unity
   - Assets/Scenes/victory.unity
   - Assets/Scenes/defeat.unity
-  playerPath: C:/Users/rwilson2/Desktop/Unity/Builds/Doodlebugs_Wilson/doodlebugs.exe
+  playerPath: C:/Users/rwilson2/Desktop/Doodlebugs_Wilson/Doodlebugs_Wilson/doodlebugs.exe
