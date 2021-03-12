@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class CanvScript : MonoBehaviour
 {
-    public Text balance;
+    public Text balance, menuButton;
     bool show = true;
     public RectTransform menu;
     public KeyCode menuKey;
     float t = 0;
+    public AudioSource slide;
 
 
     void Update()
@@ -24,6 +25,18 @@ public class CanvScript : MonoBehaviour
         if (Input.GetKeyDown(menuKey))
         {
             show = !show;
+
+            if (!show)
+            {
+                slide.pitch = .75f;
+                menuButton.text = "Show Menu";
+            }
+            else { 
+                slide.pitch = 1;
+                menuButton.text = "Hide Menu";
+            }
+
+            slide.Play();
             //print(show);
         }
      
@@ -32,9 +45,9 @@ public class CanvScript : MonoBehaviour
 
         if (show)
         {
-            t -= Time.deltaTime;
+            t -= 2.5f * Time.deltaTime;
         }
-        else t += Time.deltaTime;
+        else t += 2.5f * Time.deltaTime;
 
         t = Mathf.Clamp01(t);
     }

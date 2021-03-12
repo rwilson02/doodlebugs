@@ -77,6 +77,7 @@ public class WaveSpawner : MonoBehaviour
         Debug.Log("Spawning enemy!");
         var f = Instantiate(enemy[k], transform.position, transform.rotation);
         f.GetComponent<EnemyScript>().red = isRed;
+        print(isRed);
     }
 
     void WaveComplete()
@@ -120,15 +121,20 @@ public class WaveSpawner : MonoBehaviour
             int h = Random.Range(0, j);
             bool red = false;
 
-            if (wave.redNum < h)
+            if(wave.redNum < spawnList.Count)
             {
                 if (Random.value > 0.7)
                 {
                     red = true;
+                    wave.redNum--;
                 }
                 else red = false;
+            } 
+            else
+            {
+                red = true;
+                wave.redNum--;
             }
-            else red = true;
 
             SpawnEnemy(spawnList[h], red);
             spawnList.RemoveAt(h);

@@ -25,12 +25,12 @@ public class Fire : MonoBehaviour
         else timed = false;
 
         timer -= Time.deltaTime;
-        print(timer);
+        //print(timer);
         if (timer <= 0)
         {
             if (good && timed)
             {
-                print("shoot");
+                //print("shoot");
                 Shoot();
                 timer = 1 / rate;
             }
@@ -42,6 +42,6 @@ public class Fire : MonoBehaviour
     {
         GameObject clone = Instantiate(bullet, tip.transform.position, tip.transform.rotation);
         clone.GetComponent<bulletScript>().life = range;
-        print("shot");
+        //print("shot");
     }
 }

@@ -32,14 +32,14 @@ public class bulletScript : MonoBehaviour
             hp--;
             var enem = collision.GetComponent<EnemyScript>();
             enem.hp--;
+            AudioSource.PlayClipAtPoint(hit.clip, this.transform.position);
 
-            if(enem.hp == 0)
+            if (enem.hp == 0)
             {
                 enem.Kill();
             }
             if (hp == 0)
             {
-                hit.Play();
                 Destroy(gameObject);
             }
         }

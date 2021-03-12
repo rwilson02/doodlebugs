@@ -8,13 +8,15 @@ public class TowerPlacement : MonoBehaviour
     public GameObject statTower;
     public GameObject mouseTower;
     int placeStage = 0;
-    bool done = false, valid, stat;
+    bool done = false, valid, stat, e = true;
 
     GameObject placing;
     SpriteRenderer placeBase, placeHead;
     aimATmouse lookScript;
     Color ghost, redGhost;
     LayerMask no;
+    public AudioClip place1, place2;
+    AudioSource place;
 
     private void Start()
     {
@@ -24,6 +26,7 @@ public class TowerPlacement : MonoBehaviour
         redGhost = new Color(1, 0, 0, 0.5f);
         no = LayerMask.NameToLayer("noClicks");
         valid = true;
+        place = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -56,21 +59,31 @@ public class TowerPlacement : MonoBehaviour
             if(placeStage >= 1)
             {
                 Debug.Log("placed");
+
+                if (e)
+                {
+                    AudioSource.PlayClipAtPoint(place1, transform.position);
+                    e = false;
+                }
+
                 placeBase.color = Color.white;
                 lookScript.enabled = true;
-                
-                if(!stat)
+
+                if (!stat)
                 {
                     done = true;
                 }
 
                 //if you've clicked again with a stat tower
-                if(placeStage == 2 && stat)
+                if (placeStage == 2 && stat)
                 {
                     Debug.Log("hello");
                     lookScript.enabled = false;
                     placeHead.color = Color.white;
                     done = true;
+
+                    place.clip = place2;
+                    place.Play();
                 }
 
                 if (done)
@@ -79,6 +92,7 @@ public class TowerPlacement : MonoBehaviour
                     placing = null;
                     placeStage = 0;
                     done = false;
+                    e = true;
                 }
             }
             

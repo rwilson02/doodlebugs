@@ -10,6 +10,7 @@ public class EnemyScript : MonoBehaviour
     public triMovement trimove = null;
     public SpriteRenderer img;
     public Sprite[] sprites;
+    public Animator anim;
     bool isTri;
 
     public ParticleSystem die;
@@ -25,11 +26,24 @@ public class EnemyScript : MonoBehaviour
             trimove = gotMoveB;
             isTri = true;
         }
+        anim = GetComponentInChildren<Animator>();
+    }
 
+    public void Kill()
+    {
+        Debug.Log("ded");
+        currenScript.playerCash.Kill(bounty);
+        Instantiate(die, transform.position, transform.rotation);
+        Destroy(gameObject);
+    }
+
+    public void RedCheck()
+    {
         if (red)
         {
             hp = Mathf.CeilToInt(hp * 1.5f);
             bounty = Mathf.CeilToInt(bounty * 1.5f);
+            anim.enabled = false;
 
             if (isTri)
             {
@@ -43,13 +57,5 @@ public class EnemyScript : MonoBehaviour
         {
             img.sprite = sprites[0];
         }
-    }
-
-    public void Kill()
-    {
-        Debug.Log("ded");
-        currenScript.playerCash.Kill(bounty);
-        Instantiate(die, transform.position, transform.rotation);
-        Destroy(gameObject);
     }
 }
